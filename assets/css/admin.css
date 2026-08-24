@@ -1,0 +1,85 @@
+/* LUMIÈRE — Admin console styling */
+
+.admin-shell { display: flex; min-height: 100vh; }
+
+.admin-sidebar {
+  width: 250px;
+  background: var(--lm-bg-soft);
+  border-right: 1px solid var(--lm-border);
+  flex-shrink: 0;
+  padding: 1.5rem 1rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  transition: transform 0.25s ease;
+  z-index: 1040;
+}
+.admin-sidebar .nav-link {
+  color: var(--lm-text-dim);
+  border-radius: 10px;
+  padding: 0.65rem 0.9rem;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.admin-sidebar .nav-link:hover { background: var(--lm-surface); color: var(--lm-text); }
+.admin-sidebar .nav-link.active { background: var(--lm-accent-soft); color: var(--lm-accent); }
+
+.admin-main { flex-grow: 1; min-width: 0; }
+.admin-topbar {
+  background: rgba(10,10,15,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--lm-border);
+  padding: 1rem 1.5rem;
+  position: sticky; top: 0; z-index: 1030;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.admin-content { padding: 1.75rem; }
+
+.stat-card {
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-border);
+  border-radius: var(--lm-radius);
+  padding: 1.4rem;
+}
+.stat-card .stat-icon {
+  width: 46px; height: 46px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--lm-accent-soft); color: var(--lm-accent); font-size: 1.3rem;
+}
+.stat-card .stat-value { font-size: 1.7rem; font-weight: 700; font-family: var(--lm-font-display); }
+.stat-card .stat-label { color: var(--lm-text-dim); font-size: 0.82rem; }
+
+.admin-table {
+  width: 100%;
+  color: var(--lm-text);
+  border-collapse: collapse;
+}
+.admin-table thead th {
+  color: var(--lm-text-dim);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-bottom: 1px solid var(--lm-border);
+  padding: 0.8rem;
+  text-align: left;
+}
+.admin-table tbody td {
+  padding: 0.8rem;
+  border-bottom: 1px solid var(--lm-border);
+  vertical-align: middle;
+  font-size: 0.9rem;
+}
+.admin-table tbody tr:hover { background: var(--lm-surface); }
+
+@media (max-width: 900px) {
+  .admin-sidebar {
+    position: fixed;
+    left: 0; top: 0;
+    transform: translateX(-100%);
+  }
+  .admin-sidebar.open { transform: translateX(0); }
+}
